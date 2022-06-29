@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Student
+from .models import Student, Post
 # Register your models here.
 
 
@@ -8,3 +8,10 @@ class StudentAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Student, StudentAdmin)
+
+
+class PostAdmin(admin.ModelAdmin):
+    list_display = ('username', 'gender')
+
+
+admin.site.register(Post, PostAdmin)

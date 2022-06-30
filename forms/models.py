@@ -35,6 +35,6 @@ class Mail(models.Model):
 
 
 class Choice(models.Model):
-    subject = models.ForeignKey(Mail, on_delete=models.CASCADE)
+    mail = models.ForeignKey(Mail, on_delete=models.CASCADE)
     college = models.CharField(max_length=100, null=True)
 

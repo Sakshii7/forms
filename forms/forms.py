@@ -2,6 +2,8 @@ from django.forms import ModelForm
 from django import forms
 from .models import Student
 from forms.models import *
+
+
 # from formValidationApp.models import *
 
 
@@ -41,3 +43,27 @@ class PostForm(ModelForm):
                 'Post Should Contain a minimum of 10 characters'])
 
         return self.cleaned_data
+
+
+class ContactForm(ModelForm):
+    class Meta:
+        model = Mail
+        fields = "__all__"
+
+    def clean(self):
+
+        super(ContactForm, self).clean()
+
+        subject = self.cleaned_data.get('subject_id')
+        message = self.cleaned_data.get('message')
+
+        if len(subject) < 4:
+            self._errors['subject'] = self.error_class([
+                'Minimum 4 characters required'])
+        if len(message) < 10:
+            self._errors['message'] = self.error_class([
+                'Message Should Contain a minimum of 10 characters'])
+
+        return self.cleaned_data
+
+

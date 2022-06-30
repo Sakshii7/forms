@@ -46,3 +46,4 @@ def mail(request):
         form = ContactForm()
 
     return render(request, 'mail.html', {'form': form})
+

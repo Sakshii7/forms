@@ -34,3 +34,4 @@ class MailAdmin(admin.ModelAdmin):
 
 admin.site.register(Mail, MailAdmin)
 
+
